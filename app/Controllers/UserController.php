@@ -2,16 +2,19 @@
 
 namespace App\Controllers;
 
+use App\Config\Session;
 use App\Models\User;
 use App\Validators\Users\RegisterValidator;
 
 class UserController
 {
     private readonly User $user;
+    private readonly Session $session;
 
     public function __construct()
     {
         $this->user = new User();
+        $this->session = new Session();
     }
 
     public function login(array $data): bool
@@ -28,8 +31,8 @@ class UserController
             return false;
         }
 
-        // TODO: Login logika (sesije)
-
+        $this->session->set("loggedIn", true);
+        $this->session->set("user", $user['id']);
         return true;
     }
 
@@ -42,6 +45,10 @@ class UserController
         }
 
         $this->user->register($data['email'], $data['password']);
+
+        $user = $this->user->getByEmail($data['email']);
+        $this->session->set("loggedIn", true);
+        $this->session->set("user", $user['id']);
         return true;
     }
 }
