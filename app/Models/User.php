@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Config\MySql;
+use PDO;
 
 class User extends MySql
 {
@@ -23,4 +24,14 @@ class User extends MySql
 
         return $stmt->rowCount() >= 1;
     }
+
+    public function getByEmail(string $email): array
+    {
+        $stmt = $this->db->prepare("SELECT * FROM users WHERE email = :email");
+        $stmt->bindParam("email", $email);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
 }

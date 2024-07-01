@@ -12,6 +12,9 @@ switch (strtolower($_POST['type'])) {
     case "register":
         $userController->register($_POST);
         break;
+    case "login":
+        $userController->login($_POST);
+        break;
     default:
         throw new Exception("Invalid type");
 }

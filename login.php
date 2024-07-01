@@ -12,7 +12,7 @@
 
         <form method="POST" action="app/Handlers/UserHandler.php" class="d-flex justify-content-center align-items-center h-100 flex-column">
 
-            <h4>Register a new account</h4>
+            <h4>Login into your account</h4>
 
             <div class="mb-3 col-10 col-md-4">
                 <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
@@ -27,10 +27,10 @@
                 </div>
             </div>
             <div class="mb-3 col-10 col-md-4">
-                <input type="submit" name="type" class="btn col-12 btn-primary" value="Register">
+                <input type="submit" name="type" class="btn col-12 btn-primary" value="Login">
             </div>
 
-            <a>Already have an account? <a href="login.php">CLICK HERE</a></a>
+            <a>Don't have an account? <a href="register.php">CLICK HERE</a></a>
 
         </form>
 
