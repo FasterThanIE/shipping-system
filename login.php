@@ -1,5 +1,9 @@
-<!DOCTYPE HTML>
+<?php
+require_once "vendor/autoload.php";
+$session = new \App\Config\Session();
+?>
 
+<!DOCTYPE HTML>
 
 <html>
 
@@ -13,6 +17,11 @@
         <form method="POST" action="app/Handlers/UserHandler.php" class="d-flex justify-content-center align-items-center h-100 flex-column">
 
             <h4>Login into your account</h4>
+
+            <?php if($session->hasKey('form_validation_error')): ?>
+                <p><?= $session->get('form_validation_error') ?></p>
+            <?php endif; ?>
+
 
             <div class="mb-3 col-10 col-md-4">
                 <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>

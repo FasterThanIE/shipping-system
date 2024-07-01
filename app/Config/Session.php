@@ -11,6 +11,11 @@ class Session
         }
     }
 
+    public function hasKey(string $key): bool
+    {
+        return isset($_SESSION[$key]);
+    }
+
     public function get(string $key): mixed
     {
         return $_SESSION[$key];

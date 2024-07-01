@@ -22,12 +22,14 @@ class UserController
         $validator = new RegisterValidator();
 
         if(!$validator->validateData($data) || !$this->user->exists($data['email'])) {
+            $this->session->set("form_validation_error", "Niste dobro uneli podatke");
             return false;
         }
 
         $user = $this->user->getByEmail($data['email']);
 
         if(!password_verify($data['password'], $user['password'])) {
+            $this->session->set("form_validation_error", "Niste uneli dobru sifru, probajte ponovo.");
             return false;
         }
 
@@ -41,6 +43,7 @@ class UserController
         $validator = new RegisterValidator();
 
         if(!$validator->validateData($data) || $this->user->exists($data['email'])) {
+            $this->session->set("form_validation_error", "Niste dobro uneli podatke");
             return false;
         }
 
