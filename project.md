@@ -3,7 +3,7 @@ Example: Bex, USPS, UPS, DHL
 
 Koje tehnologije koristimo?
 - PHP OOP
-- Javascript (Jquery)
+- Javascript **(Jquery)**
 - MySQL
 - Bootstrap 5
 - Jetbrains AI 
