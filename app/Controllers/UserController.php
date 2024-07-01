@@ -38,6 +38,13 @@ class UserController
         return true;
     }
 
+    public function logout(): bool
+    {
+        $this->session->delete("loggedIn");
+        $this->session->delete("user");
+        return true;
+    }
+
     public function register(array $data): bool
     {
         $validator = new RegisterValidator();

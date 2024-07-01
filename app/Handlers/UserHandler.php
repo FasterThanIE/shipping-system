@@ -19,6 +19,10 @@ switch (strtolower($_POST['type'])) {
         $response = $userController->login($_POST);
         $redirectTo = "user.php";
         break;
+    case "logout":
+        $response = $userController->logout();
+        $redirectTo = "login.php";
+        break;
     default:
         throw new Exception("Invalid type");
 }
