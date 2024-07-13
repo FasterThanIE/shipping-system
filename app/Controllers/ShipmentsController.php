@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Config\Session;
 use App\Models\Shipments;
-use App\Models\User;
 use App\Validators\Shipments\DeleteShipmentValidator;
 use App\Validators\Shipments\NewShipmentValidator;
 

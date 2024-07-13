@@ -3,7 +3,6 @@
 
 namespace App\Validators\Shipments;
 
-use App\Models\Shipments;
 use App\Validators\BaseValidator;
 use App\Validators\RulesInterfaces;
 
