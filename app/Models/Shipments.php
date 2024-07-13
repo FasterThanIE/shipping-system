@@ -26,12 +26,24 @@ class Shipments extends MySql
         self::SIZE_SMALL, self::SIZE_MEDIUM, self::SIZE_LARGE,
     ];
 
+    const SIZES_NAMES = [
+        self::SIZE_SMALL    => 'Mala posiljka',
+        self::SIZE_MEDIUM   => 'Normalna posiljka',
+        self::SIZE_LARGE    => 'Velika posiljka',
+    ];
+
     const METHOD_AIRPLANE   = 1;
     const METHOD_SHIP       = 2;
     const METHOD_VAN        = 3;
 
     const ALLOWED_METHODS = [
         self::METHOD_AIRPLANE, self::METHOD_SHIP, self::METHOD_VAN,
+    ];
+
+    const METHOD_NAMES = [
+        self::METHOD_AIRPLANE   => 'Avion',
+        self::METHOD_SHIP       => 'Brod',
+        self::METHOD_VAN        => 'Kombi',
     ];
 
     public function create(array $data): void
