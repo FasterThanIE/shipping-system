@@ -24,8 +24,6 @@ if(!$session->hasKey('user')) {
     <body>
 
         <form action="app/Handlers/ShipmentsHandler.php" method="post">
-            <label for="status">Status:</label><br>
-            <input type="number" id="status" name="status" min="1" required><br>
 
             <label for="sender">Sender:</label><br>
             <input type="number" id="sender" name="sender" min="1" required><br>

@@ -13,7 +13,7 @@ class NewShipmentValidator extends BaseValidator implements RulesInterfaces
     public function rules(): array
     {
         return [
-            'status', 'sender', 'locationFrom', 'locationTo',
+            'sender', 'locationFrom', 'locationTo',
             'price', 'size', 'method',
         ];
     }
@@ -21,7 +21,6 @@ class NewShipmentValidator extends BaseValidator implements RulesInterfaces
     public function validateDataWithFlags(array $data): bool
     {
         return $this->validateData($data)
-            && in_array($data['status'], Shipments::ALLOWED_STATUSES)
             && in_array($data['size'], Shipments::ALLOWED_SIZES)
             && in_array($data['method'], Shipments::ALLOWED_METHODS);
     }

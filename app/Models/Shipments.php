@@ -39,11 +39,10 @@ class Shipments extends MySql
 
         $stmt = $this->db->prepare("
             INSERT INTO shipments 
-                (status, sender, location_from, location_to, price, size, method) 
-            VALUES (:status, :sender, :locationFrom, :locationTo, :price, :size, :method)
+                (sender, location_from, location_to, price, size, method) 
+            VALUES (:sender, :locationFrom, :locationTo, :price, :size, :method)
         ");
 
-        $stmt->bindParam(':status', $data['status'], PDO::PARAM_INT);
         $stmt->bindParam(':sender', $data['sender'], PDO::PARAM_INT);
         $stmt->bindParam(':locationFrom', $data['locationFrom']);
         $stmt->bindParam(':locationTo', $data['locationTo']);
