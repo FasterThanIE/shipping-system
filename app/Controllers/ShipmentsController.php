@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Config\Session;
 use App\Models\Shipments;
 use App\Models\User;
+use App\Validators\Shipments\DeleteShipmentValidator;
 use App\Validators\Shipments\NewShipmentValidator;
 
 class ShipmentsController
@@ -37,6 +38,26 @@ class ShipmentsController
 
         $data['sender'] = $this->session->get('user');
         $this->shipments->create($data);
+
+        return true;
+    }
+
+    public function deleteShipment(array $data): bool
+    {
+        $validator = new DeleteShipmentValidator();
+
+        if(!$validator->validateData($data)) {
+            $this->session->set("form_validation_error", "Niste dobro uneli podatke");
+            return false;
+        }
+
+        $shipment = $this->shipments->getShipmentById($data['id']);
+
+        if($shipment['sender'] !== $this->session->get('user')) {
+            return false;
+        }
+
+        $this->shipments->deleteById($data['id']);
 
         return true;
     }

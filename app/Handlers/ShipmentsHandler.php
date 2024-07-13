@@ -3,7 +3,8 @@
 
 use App\Controllers\ShipmentsController;
 
-if(!isset($_POST['type'])) {
+
+if(!isset($_POST['type']) && !isset($_GET['type'])) {
     die("ERROR");
 }
 
@@ -13,9 +14,16 @@ $shipmentsController = new ShipmentsController();
 $response = false;
 $redirectTo = null;
 
-switch (strtolower($_POST['type'])) {
+$type = isset($_POST['type']) ? strtolower($_POST['type']) : strtolower($_GET['type']);
+
+switch ($type) {
     case "create":
         $response = $shipmentsController->createShipment($_POST);
+        $redirectTo = "index.php";
+        $response = true;
+        break;
+    case "delete":
+        $response = $shipmentsController->deleteShipment($_GET);
         $redirectTo = "index.php";
         $response = true;
         break;

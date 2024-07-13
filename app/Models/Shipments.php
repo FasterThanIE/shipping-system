@@ -81,4 +81,20 @@ class Shipments extends MySql
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getShipmentById(int $id): array
+    {
+        $stmt = $this->db->prepare("SELECT * FROM shipments WHERE id = :id LIMIT 1");
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function deleteById(int $id): void
+    {
+        $stmt = $this->db->prepare("DELETE FROM shipments WHERE id = :id");
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+    }
 }

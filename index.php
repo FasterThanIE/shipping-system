@@ -59,7 +59,7 @@ $shipments = new Shipments();
                         <td><?= $shipment['created_at'] ?></td>
                         <td>
                             <a class="btn btn-primary">EDIT</a>
-                            <a class="btn btn-danger">DELETE</a>
+                            <a href="app/Handlers/ShipmentsHandler.php?type=delete&id=<?= $shipment['id'] ?>" class="btn btn-danger">DELETE</a>
                         </td>
                     </tr>
                 <?php endforeach ?>
