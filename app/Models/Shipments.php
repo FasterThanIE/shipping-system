@@ -18,6 +18,13 @@ class Shipments extends MySql
         self::STATUS_REJECTED, self::STATUS_RETURNED,
     ];
 
+    const STATUS_NAMES = [
+        self::STATUS_SENT       => "Poslato",
+        self::STATUS_RECEIVED   => "Primljeno",
+        self::STATUS_REJECTED   => "Odbijeno",
+        self::STATUS_RETURNED   => "Vraceno",
+    ];
+
     const SIZE_SMALL    = 1;
     const SIZE_MEDIUM   = 2;
     const SIZE_LARGE    = 3;
@@ -64,5 +71,14 @@ class Shipments extends MySql
 
         $stmt->execute();
 
+    }
+
+    public function getAllShipmentsForUser(int $userId): array
+    {
+        $stmt = $this->db->prepare("SELECT * FROM shipments WHERE sender = :sender ORDER BY created_at DESC");
+        $stmt->bindParam(":sender", $userId);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
