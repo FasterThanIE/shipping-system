@@ -26,10 +26,6 @@ if(!$session->hasKey('user')) {
     <body>
 
         <form action="app/Handlers/ShipmentsHandler.php" method="post" class="m-3">
-            <div class="mb-3">
-                <label for="sender" class="form-label">Sender:</label>
-                <input type="number" id="sender" name="sender" min="1" class="form-control" required>
-            </div>
 
             <div class="mb-3">
                 <label for="locationFrom" class="form-label">Location From:</label>

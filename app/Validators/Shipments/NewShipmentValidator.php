@@ -13,7 +13,7 @@ class NewShipmentValidator extends BaseValidator implements RulesInterfaces
     public function rules(): array
     {
         return [
-            'sender', 'locationFrom', 'locationTo',
+            'locationFrom', 'locationTo',
             'price', 'size', 'method',
         ];
     }
