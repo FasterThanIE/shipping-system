@@ -26,6 +26,22 @@ class Shipments extends MySql
         $stmt->execute();
     }
 
+    public function getShipmentById(int $id): array
+    {
+        $stmt = $this->db->prepare("SELECT * FROM shipments WHERE id = :id");
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function delete(int $id): void
+    {
+        $stmt = $this->db->prepare("DELETE FROM shipments WHERE id = :id");
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+    }
+
     public function getShipmentsForUser(int $userId): array
     {
         $stmt = $this->db->prepare("SELECT * FROM shipments WHERE user_id = :userId");

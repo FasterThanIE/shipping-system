@@ -47,6 +47,7 @@ $shipments = $shipmentsModel->getShipmentsForUser($session->get('user'));
             <th>Delivery Info</th>
             <th>Created At</th>
             <th>Updated At</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -63,6 +64,9 @@ $shipments = $shipmentsModel->getShipmentsForUser($session->get('user'));
                 <td><?= $shipment['delivery_info'] ?></td>
                 <td><?= $shipment['created_at'] ?></td>
                 <td><?= $shipment['updated_at'] ?></td>
+                <td>
+                    <a href="app/Handlers/ShipmentHandler.php?id=<?= $shipment['id'] ?>&type=delete" class="btn btn-danger">Delete</a>
+                </td>
             </tr>
         <?php endforeach ?>
         </tbody>
