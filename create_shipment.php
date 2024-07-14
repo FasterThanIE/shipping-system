@@ -1,11 +1,13 @@
 
-<?php use App\Enums\Shipments\LocationEnum;
+<?php use App\Config\Session;
+use App\Enums\Shipments\LocationEnum;
 use App\Enums\Shipments\MethodEnum;
 use App\Enums\Shipments\SizeEnum;
 
 require_once "vendor/autoload.php";
 
 $locations = LocationEnum::cases();
+$session = new Session();
 ?>
 
 <!doctype html>
@@ -20,9 +22,13 @@ $locations = LocationEnum::cases();
     <body>
         <form class="container mt-5" method="POST" action="app/Handlers/ShipmentHandler.php">
 
+            <?php if($session->hasKey('form_validation_error')): ?>
+                <p><?= $session->get('form_validation_error') ?></p>
+            <?php endif; ?>
+
             <div class="mb-3">
                 <label for="size" class="form-label">Size</label>
-                <select class="form-control" id="size" name="method">
+                <select class="form-control" id="size" name="size">
                     <?php foreach (SizeEnum::cases() as $case): ?>
                         <option value="<?= $case->value ?>"><?= $case->getName() ?></option>
                     <?php endforeach ?>
@@ -58,13 +64,13 @@ $locations = LocationEnum::cases();
 
             <div class="mb-3">
                 <label for="price" class="form-label">Price</label>
-                <input name="price" type="number" class="form-control" id="price" value="<?= rand(1, 1000) ?>">
+                <input name="price" type="number" class="form-control" id="price" value="<?= rand(1, 1000) ?>" required>
             </div>
 
 
             <div class="mb-3">
                 <label for="note" class="form-label">Note</label>
-                <textarea name="note" class="form-control" id="note">Note <?= time() ?></textarea>
+                <textarea name="note" class="form-control" id="note" required>Note <?= time() ?></textarea>
             </div>
 
             <div class="mb-3">

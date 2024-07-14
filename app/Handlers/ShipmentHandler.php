@@ -14,7 +14,7 @@ $redirectTo = null;
 
 switch (strtolower($_POST['type'])) {
     case "create":
-        $shipmentController->create();
+        $shipmentController->create($_POST);
         $redirectTo = "index.php";
     default:
         throw new Exception("Invalid type");
