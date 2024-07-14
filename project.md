@@ -50,7 +50,7 @@ Koje tehnologije koristimo?
 [D] - Napraviti model
 
 Fokus - Kreiranje shipmenta:
-- Napraviti View (create_pro)
+[D] - Napraviti View (create_pro)
 - Handler
 - Validator
 - Controller

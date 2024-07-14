@@ -18,7 +18,7 @@ $locations = LocationEnum::cases();
     </head>
 
     <body>
-        <form class="container mt-5">
+        <form class="container mt-5" method="POST" action="app/Handlers/ShipmentHandler.php">
 
             <div class="mb-3">
                 <label for="size" class="form-label">Size</label>
@@ -58,19 +58,21 @@ $locations = LocationEnum::cases();
 
             <div class="mb-3">
                 <label for="price" class="form-label">Price</label>
-                <input name="price" type="number" class="form-control" id="price">
+                <input name="price" type="number" class="form-control" id="price" value="<?= rand(1, 1000) ?>">
             </div>
 
 
             <div class="mb-3">
                 <label for="note" class="form-label">Note</label>
-                <textarea name="note" class="form-control" id="note"></textarea>
+                <textarea name="note" class="form-control" id="note">Note <?= time() ?></textarea>
             </div>
 
             <div class="mb-3">
                 <label for="delivery_info" class="form-label">Delivery Info</label>
-                <textarea name="delivery_info" class="form-control" id="delivery_info" required></textarea>
+                <textarea name="delivery_info" class="form-control" id="delivery_info" required>Bla bla <?= time() ?></textarea>
             </div>
+
+            <input type="hidden" name="type" value="create" />
 
             <button type="submit" class="btn btn-primary">Submit</button>
 
