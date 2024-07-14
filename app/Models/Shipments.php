@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Config\MySql;
+use PDO;
 
 class Shipments extends MySql
 {
@@ -23,5 +24,14 @@ class Shipments extends MySql
         $stmt->bindParam(":delivery_info", $data['delivery_info']);
 
         $stmt->execute();
+    }
+
+    public function getShipmentsForUser(int $userId): array
+    {
+        $stmt = $this->db->prepare("SELECT * FROM shipments WHERE user_id = :userId");
+        $stmt->bindParam(":userId", $userId);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }

@@ -11,5 +11,7 @@
             "email": "itmentorstva@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+      "ext-pdo": "*"
+    }
 }
