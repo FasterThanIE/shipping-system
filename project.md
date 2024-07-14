@@ -42,3 +42,16 @@ Koje tehnologije koristimo?
 4. Pracenje posiljke:
    - Pracenje posiljke preko profila
    - Pracenje posiljke putem ID-a
+
+
+
+# Koraci za shipment
+[D] - Napraviti tabelu
+[D] - Napraviti model
+
+Fokus - Kreiranje shipmenta:
+- Napraviti View (create_pro)
+- Handler
+- Validator
+- Controller
+- Metoda za upis

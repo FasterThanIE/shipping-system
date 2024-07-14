@@ -9,7 +9,7 @@ enum StatusEnum: int
     case DENIED     = 3;
     case RETURNED   = 4;
 
-    public function getStatusName(): string
+    public function getName(): string
     {
         return match($this) {
             self::SENT  => 'Poslato',

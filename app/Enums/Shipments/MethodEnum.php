@@ -8,7 +8,7 @@ enum MethodEnum: int
     case SHIP       = 2;
     case TRUCK      = 3;
 
-    public function getMethodName(): string
+    public function getName(): string
     {
         return match($this) {
             self::AIRPlANE  => 'Avion',
