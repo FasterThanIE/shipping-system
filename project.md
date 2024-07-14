@@ -51,7 +51,7 @@ Koje tehnologije koristimo?
 
 Fokus - Kreiranje shipmenta:
 [D] - Napraviti View (create_pro)
-- Handler
-- Validator
-- Controller
+[D] - Handler
+[D] - Validator
+[D] - Controller
 - Metoda za upis

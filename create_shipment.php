@@ -1,13 +1,23 @@
 
-<?php use App\Config\Session;
+<?php
+
+require_once "vendor/autoload.php";
+
+use App\Config\Session;
 use App\Enums\Shipments\LocationEnum;
 use App\Enums\Shipments\MethodEnum;
 use App\Enums\Shipments\SizeEnum;
 
+$session = new Session();
+if(!$session->hasKey('user')) {
+    header("Location: login.php");
+    exit();
+}
+
 require_once "vendor/autoload.php";
 
 $locations = LocationEnum::cases();
-$session = new Session();
+
 ?>
 
 <!doctype html>
